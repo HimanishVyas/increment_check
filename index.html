@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Salary Increment Calculator</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="page">
+      <section class="card">
+        <header class="card__header">
+          <h1>Salary Increment Calculator</h1>
+          <p>Estimate your new salary, pending increment, and recovery time.</p>
+        </header>
+
+        <form id="calculator-form" class="form">
+          <div class="form__grid">
+            <label class="field">
+              <span>Current Salary (per month)</span>
+              <input
+                id="current-salary"
+                type="number"
+                inputmode="decimal"
+                min="0"
+                step="0.01"
+                placeholder="50000"
+                required
+              />
+            </label>
+            <label class="field">
+              <span>Expected Increment (%)</span>
+              <input
+                id="expected-increment"
+                type="number"
+                inputmode="decimal"
+                min="0"
+                max="100"
+                step="0.01"
+                placeholder="10"
+                required
+              />
+            </label>
+            <label class="field">
+              <span>Actual Increment (%)</span>
+              <input
+                id="actual-increment"
+                type="number"
+                inputmode="decimal"
+                min="0"
+                max="100"
+                step="0.01"
+                placeholder="8"
+                required
+              />
+            </label>
+            <label class="field">
+              <span>Increment Effective Date</span>
+              <input id="effective-date" type="date" required />
+            </label>
+            <label class="field">
+              <span>Date Increment Applied</span>
+              <input id="applied-date" type="date" required />
+            </label>
+          </div>
+
+          <button type="submit" class="button">Calculate</button>
+          <p id="form-message" class="form__message" aria-live="polite"></p>
+        </form>
+      </section>
+
+      <section class="card" id="results" hidden>
+        <header class="card__header">
+          <h2>Results</h2>
+          <p>Based on the details you provided.</p>
+        </header>
+
+        <div class="results">
+          <div class="result">
+            <span>New Salary After Increment</span>
+            <strong id="result-new-salary">-</strong>
+          </div>
+          <div class="result">
+            <span>Monthly Increment Amount</span>
+            <strong id="result-monthly-increment">-</strong>
+          </div>
+          <div class="result">
+            <span>Total Pending Increment (Delay)</span>
+            <strong id="result-pending">-</strong>
+          </div>
+          <div class="result">
+            <span>Extra Amount / Month (Expected vs Actual)</span>
+            <strong id="result-extra">-</strong>
+          </div>
+          <div class="result">
+            <span>Months to Recover Loss</span>
+            <strong id="result-recovery">-</strong>
+          </div>
+        </div>
+
+        <details class="breakdown">
+          <summary>Calculation breakdown</summary>
+          <div id="breakdown-content" class="breakdown__content"></div>
+        </details>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
